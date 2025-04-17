@@ -1,25 +1,22 @@
-# Función para pedir y validar un número binario como cadena
+# Función para pedir y validar un número binario como entero (0 o 1)
 def pedir_numero_binario(nombre_variable):
-    es_binario_valido = False
+    #Abrimos estructura repetitiva para que no se pueda avanzar hasta ingresar un valor valido
+    while True:
+        try:
+            #Pedimos el valor de entrada definiendolo como int para que ya python controle una serie de valores de entrada
+            entrada = int(input(f"Ingrese el valor del {nombre_variable} (solo 0 o 1): "))
 
-    while es_binario_valido == False:
-        entrada = input(f"Ingrese el valor del {nombre_variable} (solo con 0 y 1): ")
+            #Verificamos que el numero ingresado este en el rango deseado
+            if entrada not in (0, 1):
+                print("Error: Solo se permite ingresar 0 o 1.")
+                continue
 
-        es_binario_valido = True
+            print(f"El valor de {nombre_variable} es válido.")
+            return entrada
 
-        for caracter in entrada:
-            if not (caracter == '0' or caracter == '1'):
-                es_binario_valido = False
-                print("Error: Se ingresó un carácter no válido:", caracter)
-                break
+        except ValueError:
+            print("Error: Debe ingresar un número entero válido (0 o 1).")
 
-    print(f"El valor de {nombre_variable} es válido.")
-    return entrada  # retornamos la cadena binaria tal cual
 
-# Pedimos los dos números binarios como cadenas
-num1 = pedir_numero_binario("num1")
-num2 = pedir_numero_binario("num2")
 
-# Mostramos los valores
-print("Número 1 en binario:", num1)
-print("Número 2 en binario:", num2)
+
