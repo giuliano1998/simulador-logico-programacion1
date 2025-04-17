@@ -1,17 +1,13 @@
-"""
-Programa que agrega puertas extra(xor,nand,nor).
-"""
+# Este archivo contiene funciones de puertas más avanzadas: XOR, NAND y NOR
 
-print("Puertas logicas extras")
+# XOR: devuelve 1 si los valores son distintos
+def puerta_xor(a, b):
+    return 1 if a != b else 0
 
-a = int(input("Ingrese el primer bit (0): "))
-b = int(input("Ingrese el segundo bit (1): "))
+# NAND: devuelve el inverso de AND
+def puerta_nand(a, b):
+    return 0 if a == 1 and b == 1 else 1
 
-xor = a^b
-nand = int(not (a and b))
-nor = int(not (a or b))
-
-print("Resultado de puertas logicas extras")
-print(f"{xor}")
-print(f"{nand}")
-print(f"{nor}")
+# NOR: devuelve 1 solo si ambos valores son 0
+def puerta_nor(a, b):
+    return 1 if a == 0 and b == 0 else 0
